@@ -134,24 +134,73 @@ function StatsView() {
         ))}
       </div>
 
-      {/* Capacity visual bar */}
+      {/* Capacity & District Distribution Grid */}
       {stats && !isLoading && (
-        <div className="mt-8 glass rounded-2xl p-6">
-          <div className="flex items-center justify-between mb-3">
-            <h2 className="text-sm font-semibold text-white/70">Capacity Usage</h2>
-            <span className="text-sm text-white/40">
-              {stats.total - stats.rejected} / 150 filled
-            </span>
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mt-8">
+          {/* Capacity visual bar */}
+          <div className="glass rounded-2xl p-6 flex flex-col justify-between">
+            <div>
+              <div className="flex items-center justify-between mb-3">
+                <h2 className="text-sm font-semibold text-white/70">Capacity Usage</h2>
+                <span className="text-sm text-white/40">
+                  {stats.total - stats.rejected} / 150 filled
+                </span>
+              </div>
+              <div className="w-full bg-white/10 rounded-full h-4 overflow-hidden">
+                <div
+                  className="h-full rounded-full bg-gradient-to-r from-primary-600 via-purple-500 to-accent-500 transition-all duration-700"
+                  style={{ width: `${Math.min(100, ((stats.total - stats.rejected) / 150) * 100)}%` }}
+                />
+              </div>
+              <div className="flex justify-between text-xs text-white/30 mt-2">
+                <span>0</span>
+                <span>150</span>
+              </div>
+            </div>
+            
+            <div className="mt-6 p-4 rounded-xl bg-white/5 border border-white/5">
+              <p className="text-xs text-white/40 leading-relaxed">
+                🎟️ Remaining tickets: <strong className="text-primary-400">{stats.remaining_capacity}</strong>. Approval rate is <strong className="text-emerald-400">{stats.total > 0 ? Math.round((stats.approved / stats.total) * 100) : 0}%</strong> of total submissions. Checked in status represents ticket verification at the gate.
+              </p>
+            </div>
           </div>
-          <div className="w-full bg-white/10 rounded-full h-4 overflow-hidden">
-            <div
-              className="h-full rounded-full bg-gradient-to-r from-primary-600 via-purple-500 to-accent-500 transition-all duration-700"
-              style={{ width: `${Math.min(100, ((stats.total - stats.rejected) / 150) * 100)}%` }}
-            />
-          </div>
-          <div className="flex justify-between text-xs text-white/30 mt-2">
-            <span>0</span>
-            <span>150</span>
+
+          {/* District Distribution Bar Chart */}
+          <div className="glass rounded-2xl p-6 flex flex-col">
+            <h2 className="text-sm font-semibold text-white/70 mb-4">Bookings by District</h2>
+            {stats.districts && stats.districts.length > 0 ? (
+              <div className="space-y-4 max-h-[300px] overflow-y-auto pr-2">
+                {(() => {
+                  const maxCount = Math.max(...stats.districts.map(d => d.count), 1);
+                  return stats.districts.map((d) => {
+                    const percent = Math.round((d.count / maxCount) * 100);
+                    const totalPercent = Math.round((d.count / stats.total) * 100);
+                    return (
+                      <div key={d.district} className="group">
+                        <div className="flex justify-between text-xs mb-1.5">
+                          <span className="font-medium text-white/80 group-hover:text-white transition-colors">
+                            {d.district}
+                          </span>
+                          <span className="text-white/50">
+                            <strong className="text-white/80">{d.count}</strong> {d.count === 1 ? 'booking' : 'bookings'} ({totalPercent}%)
+                          </span>
+                        </div>
+                        <div className="w-full bg-white/5 rounded-full h-2.5 overflow-hidden border border-white/5">
+                          <div
+                            className="h-full rounded-full bg-gradient-to-r from-primary-500 to-purple-500 transition-all duration-1000 group-hover:from-primary-400 group-hover:to-purple-400"
+                            style={{ width: `${percent}%` }}
+                          />
+                        </div>
+                      </div>
+                    );
+                  });
+                })()}
+              </div>
+            ) : (
+              <div className="h-48 flex items-center justify-center text-white/30 text-xs">
+                No district data available
+              </div>
+            )}
           </div>
         </div>
       )}
