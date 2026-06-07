@@ -7,40 +7,40 @@ export default {
   theme: {
     extend: {
       colors: {
-        // Primary: Deep Indigo
+        // Primary: Isibuwa Gold Glow
         primary: {
-          50:  '#eef2ff',
-          100: '#e0e7ff',
-          200: '#c7d2fe',
-          300: '#a5b4fc',
-          400: '#818cf8',
-          500: '#6366f1',
-          600: '#4f46e5',
-          700: '#4338ca',
-          800: '#3730a3',
-          900: '#312e81',
-          950: '#1e1b4b',
+          50:  '#FAF5E4', // Ivory
+          100: '#F0D080', // Gold Bright
+          200: '#E7C676',
+          300: '#DCB65B',
+          400: '#D2A641',
+          500: '#C9922A', // Gold Primary
+          600: '#A67118', // Gold Deep
+          700: '#865B13',
+          800: '#66440D',
+          900: '#472F07',
+          950: '#241D13', // Surface 3
         },
-        // Accent: Vibrant Amber
+        // Accent: Warm/Bright Golds
         accent: {
-          50:  '#fffbeb',
-          100: '#fef3c7',
-          200: '#fde68a',
-          300: '#fcd34d',
-          400: '#fbbf24',
-          500: '#f59e0b',
-          600: '#d97706',
-          700: '#b45309',
-          800: '#92400e',
-          900: '#78350f',
+          50:  '#FAF5E4',
+          100: '#F0D080',
+          200: '#E7C676',
+          300: '#DCB65B',
+          400: '#D2A641',
+          500: '#C9922A',
+          600: '#A67118',
+          700: '#865B13',
+          800: '#66440D',
+          900: '#472F07',
         },
-        // Dark backgrounds
+        // Dark backgrounds (candlelight forest night)
         dark: {
-          950: '#0a0718',
-          900: '#0f0a1e',
-          800: '#150e2b',
-          700: '#1a1035',
-          600: '#221542',
+          950: '#0C0A07', // Surface 1
+          900: '#17130D', // Surface 2
+          800: '#241D13', // Surface 3
+          700: '#2E2519',
+          600: '#392E20',
         },
       },
       fontFamily: {
@@ -49,7 +49,7 @@ export default {
       },
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-        'hero-gradient':   'linear-gradient(135deg, #0f0a1e 0%, #1a0a3e 50%, #0f0a1e 100%)',
+        'hero-gradient':   'linear-gradient(135deg, #0C0A07 0%, #17130D 50%, #0C0A07 100%)',
       },
       animation: {
         'fade-in':     'fadeIn 0.5s ease-out',

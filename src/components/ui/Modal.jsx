@@ -82,7 +82,7 @@ export function Modal({ isOpen, onClose, title, children, size = 'md' }) {
         tabIndex={-1}
         className={[
           'relative w-full rounded-2xl',
-          'bg-dark-700 border border-white/10',
+          'bg-[var(--surface-2)] border border-[var(--surface-border)]',
           'shadow-2xl shadow-black/50',
           'animate-slide-up',
           'max-h-[90vh] flex flex-col',
@@ -90,13 +90,13 @@ export function Modal({ isOpen, onClose, title, children, size = 'md' }) {
         ].join(' ')}
       >
         {/* Header */}
-        <div className="flex items-center justify-between px-6 py-5 border-b border-white/10 flex-shrink-0">
-          <h2 id="modal-title" className="text-xl font-bold text-white">
+        <div className="flex items-center justify-between px-6 py-5 border-b border-[var(--surface-border)] flex-shrink-0">
+          <h2 id="modal-title" className="text-xl font-bold text-[var(--ivory)]">
             {title}
           </h2>
           <button
             onClick={onClose}
-            className="p-2 rounded-lg text-white/40 hover:text-white hover:bg-white/10 transition-colors"
+            className="p-2 rounded-lg text-[var(--ivory-muted)]/40 hover:text-[var(--gold-bright)] hover:bg-[var(--surface-3)] transition-colors"
             aria-label="Close modal"
           >
             <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
