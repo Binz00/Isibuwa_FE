@@ -48,10 +48,10 @@ export default function AdminLoginPage() {
   }
 
   return (
-    <div className="min-h-screen bg-dark-950 flex items-center justify-center px-4 relative overflow-hidden">
+    <div className="min-h-screen bg-[var(--surface-1)] flex items-center justify-center px-4 relative overflow-hidden">
       {/* Background orbs */}
-      <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary-600/15 rounded-full blur-3xl pointer-events-none" />
-      <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-purple-600/10 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-[var(--gold-deep)]/10 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-[var(--gold-primary)]/5 rounded-full blur-3xl pointer-events-none" />
 
       <div className="relative w-full max-w-md">
         {/* Header */}
@@ -59,8 +59,8 @@ export default function AdminLoginPage() {
           <a href="/" className="inline-block mb-6">
             <span className="text-3xl font-black gradient-text">ISIBUWA</span>
           </a>
-          <h1 className="text-2xl font-bold text-white mb-2">Admin Portal</h1>
-          <p className="text-white/40 text-sm">Sign in to manage bookings</p>
+          <h1 className="text-2xl font-bold text-[var(--ivory)] mb-2">Admin Portal</h1>
+          <p className="text-[var(--ivory-muted)]/40 text-sm">Sign in to manage bookings</p>
         </div>
 
         {/* Login card */}
@@ -104,7 +104,7 @@ export default function AdminLoginPage() {
 
         {/* Back to site */}
         <div className="text-center mt-6">
-          <a href="/" className="text-sm text-white/30 hover:text-white/60 transition-colors">
+          <a href="/" className="text-sm text-[var(--ivory-muted)]/30 hover:text-[var(--gold-primary)] transition-colors">
             ← Back to event site
           </a>
         </div>

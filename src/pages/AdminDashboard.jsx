@@ -32,15 +32,15 @@ function Sidebar({ activeView, setActiveView, admin, onLogout, isMobileOpen, onM
       <aside className={[
         'fixed lg:static inset-y-0 left-0 z-40',
         'w-64 flex flex-col',
-        'bg-dark-800 border-r border-white/5',
+        'bg-[var(--surface-2)] border-r border-[var(--surface-border)]',
         'transition-transform duration-300 ease-in-out',
         isMobileOpen ? 'translate-x-0' : '-translate-x-full lg:translate-x-0',
       ].join(' ')}>
         {/* Logo */}
-        <div className="px-6 py-6 border-b border-white/5">
+        <div className="px-6 py-6 border-b border-[var(--surface-border)]">
           <a href="/" className="block">
             <p className="text-xl font-black gradient-text">ISIBUWA</p>
-            <p className="text-xs text-white/30 mt-0.5">Admin Portal</p>
+            <p className="text-xs text-[var(--ivory-muted)]/30 mt-0.5">Admin Portal</p>
           </a>
         </div>
 
@@ -55,8 +55,8 @@ function Sidebar({ activeView, setActiveView, admin, onLogout, isMobileOpen, onM
                 'w-full flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-medium',
                 'transition-all duration-200 text-left',
                 activeView === item.id
-                  ? 'bg-primary-600/30 text-white border border-primary-500/30'
-                  : 'text-white/50 hover:text-white hover:bg-white/5',
+                  ? 'bg-[rgba(201,146,42,0.15)] text-[var(--gold-bright)] border border-[var(--gold-primary)]/30'
+                  : 'text-[var(--ivory-muted)]/50 hover:text-[var(--ivory)] hover:bg-[var(--surface-3)]',
               ].join(' ')}
             >
               <span className="text-lg">{item.icon}</span>
@@ -66,20 +66,20 @@ function Sidebar({ activeView, setActiveView, admin, onLogout, isMobileOpen, onM
         </nav>
 
         {/* Admin info + logout */}
-        <div className="px-4 py-4 border-t border-white/5">
+        <div className="px-4 py-4 border-t border-[var(--surface-border)]">
           <div className="flex items-center gap-3 px-3 py-3 rounded-xl mb-2">
-            <div className="w-9 h-9 rounded-full bg-primary-600/30 border border-primary-500/30 flex items-center justify-center text-sm font-bold text-primary-400">
+            <div className="w-9 h-9 rounded-full bg-[rgba(201,146,42,0.15)] border border-[var(--gold-primary)]/30 flex items-center justify-center text-sm font-bold text-[var(--gold-primary)]">
               {admin?.name?.[0] || 'A'}
             </div>
             <div className="min-w-0">
-              <p className="text-sm font-medium text-white truncate">{admin?.name}</p>
-              <p className="text-xs text-white/30 truncate">{admin?.email}</p>
+              <p className="text-sm font-medium text-[var(--ivory)] truncate">{admin?.name}</p>
+              <p className="text-xs text-[var(--ivory-muted)]/30 truncate">{admin?.email}</p>
             </div>
           </div>
           <button
             id="logout-btn"
             onClick={onLogout}
-            className="w-full flex items-center gap-3 px-4 py-2.5 rounded-xl text-sm text-white/40 hover:text-white hover:bg-red-500/10 hover:text-red-400 transition-all"
+            className="w-full flex items-center gap-3 px-4 py-2.5 rounded-xl text-sm text-[var(--ivory-muted)]/40 hover:text-[var(--ivory)] hover:bg-red-500/10 hover:text-red-400 transition-all"
           >
             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
@@ -97,20 +97,20 @@ function StatsView() {
   const { stats, isLoading, refetch } = useStats()
 
   const cards = [
-    { label: 'Total Bookings',     value: stats?.total,              icon: '🎟️',  colorClass: 'text-white',           bgClass: 'bg-white/10' },
+    { label: 'Total Bookings',     value: stats?.total,              icon: '🎟️',  colorClass: 'text-[var(--ivory)]',           bgClass: 'bg-[var(--surface-3)]' },
     { label: 'Pending Review',     value: stats?.pending,            icon: '⏳',  colorClass: 'text-amber-400',        bgClass: 'bg-amber-500/20' },
     { label: 'Approved',           value: stats?.approved,           icon: '✅',  colorClass: 'text-emerald-400',      bgClass: 'bg-emerald-500/20' },
     { label: 'Rejected',           value: stats?.rejected,           icon: '❌',  colorClass: 'text-red-400',          bgClass: 'bg-red-500/20' },
     { label: 'Checked In',         value: stats?.checked_in,         icon: '🎫',  colorClass: 'text-cyan-400',         bgClass: 'bg-cyan-500/20' },
-    { label: 'Remaining Capacity', value: stats?.remaining_capacity, icon: '💺',  colorClass: 'text-primary-400',      bgClass: 'bg-primary-500/20' },
+    { label: 'Remaining Capacity', value: stats?.remaining_capacity, icon: '💺',  colorClass: 'text-[var(--gold-primary)]',      bgClass: 'bg-[rgba(201,146,42,0.15)]' },
   ]
 
   return (
     <div>
       <div className="flex items-center justify-between mb-8">
         <div>
-          <h1 className="text-2xl font-bold text-white">Dashboard</h1>
-          <p className="text-sm text-white/40 mt-1">Isibuwa Festival 2026 — Booking Overview</p>
+          <h1 className="text-2xl font-bold text-[var(--ivory)]">Dashboard</h1>
+          <p className="text-sm text-[var(--ivory-muted)]/40 mt-1">Isibuwa Festival 2026 — Booking Overview</p>
         </div>
         <Button variant="ghost" size="sm" onClick={refetch}>
           <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -141,33 +141,33 @@ function StatsView() {
           <div className="glass rounded-2xl p-6 flex flex-col justify-between">
             <div>
               <div className="flex items-center justify-between mb-3">
-                <h2 className="text-sm font-semibold text-white/70">Capacity Usage</h2>
-                <span className="text-sm text-white/40">
+                <h2 className="text-sm font-semibold text-[var(--ivory-muted)]">Capacity Usage</h2>
+                <span className="text-sm text-[var(--ivory-muted)]/40">
                   {stats.total - stats.rejected} / 150 filled
                 </span>
               </div>
-              <div className="w-full bg-white/10 rounded-full h-4 overflow-hidden">
+              <div className="w-full bg-[var(--surface-3)] rounded-full h-4 overflow-hidden">
                 <div
-                  className="h-full rounded-full bg-gradient-to-r from-primary-600 via-purple-500 to-accent-500 transition-all duration-700"
+                  className="h-full rounded-full bg-gradient-to-r from-[var(--gold-deep)] via-[var(--gold-primary)] to-[var(--gold-bright)] transition-all duration-700"
                   style={{ width: `${Math.min(100, ((stats.total - stats.rejected) / 150) * 100)}%` }}
                 />
               </div>
-              <div className="flex justify-between text-xs text-white/30 mt-2">
+              <div className="flex justify-between text-xs text-[var(--ivory-muted)]/30 mt-2">
                 <span>0</span>
                 <span>150</span>
               </div>
             </div>
             
-            <div className="mt-6 p-4 rounded-xl bg-white/5 border border-white/5">
-              <p className="text-xs text-white/40 leading-relaxed">
-                🎟️ Remaining tickets: <strong className="text-primary-400">{stats.remaining_capacity}</strong>. Approval rate is <strong className="text-emerald-400">{stats.total > 0 ? Math.round((stats.approved / stats.total) * 100) : 0}%</strong> of total submissions. Checked in status represents ticket verification at the gate.
+            <div className="mt-6 p-4 rounded-xl bg-[var(--surface-3)]/40 border border-[var(--surface-border)]">
+              <p className="text-xs text-[var(--ivory-muted)] leading-relaxed">
+                🎟️ Remaining tickets: <strong className="text-[var(--gold-bright)]">{stats.remaining_capacity}</strong>. Approval rate is <strong className="text-emerald-400">{stats.total > 0 ? Math.round((stats.approved / stats.total) * 100) : 0}%</strong> of total submissions. Checked in status represents ticket verification at the gate.
               </p>
             </div>
           </div>
 
           {/* District Distribution Bar Chart */}
           <div className="glass rounded-2xl p-6 flex flex-col">
-            <h2 className="text-sm font-semibold text-white/70 mb-4">Bookings by District</h2>
+            <h2 className="text-sm font-semibold text-[var(--ivory-muted)] mb-4">Bookings by District</h2>
             {stats.districts && stats.districts.length > 0 ? (
               <div className="space-y-4 max-h-[300px] overflow-y-auto pr-2">
                 {(() => {
@@ -178,16 +178,16 @@ function StatsView() {
                     return (
                       <div key={d.district} className="group">
                         <div className="flex justify-between text-xs mb-1.5">
-                          <span className="font-medium text-white/80 group-hover:text-white transition-colors">
+                          <span className="font-medium text-[var(--ivory-muted)] group-hover:text-[var(--ivory)] transition-colors">
                             {d.district}
                           </span>
-                          <span className="text-white/50">
-                            <strong className="text-white/80">{d.count}</strong> {d.count === 1 ? 'booking' : 'bookings'} ({totalPercent}%)
+                          <span className="text-[var(--ivory-muted)]/50">
+                            <strong className="text-[var(--ivory)]">{d.count}</strong> {d.count === 1 ? 'booking' : 'bookings'} ({totalPercent}%)
                           </span>
                         </div>
-                        <div className="w-full bg-white/5 rounded-full h-2.5 overflow-hidden border border-white/5">
+                        <div className="w-full bg-[var(--surface-3)]/20 rounded-full h-2.5 overflow-hidden border border-[var(--surface-border)]">
                           <div
-                            className="h-full rounded-full bg-gradient-to-r from-primary-500 to-purple-500 transition-all duration-1000 group-hover:from-primary-400 group-hover:to-purple-400"
+                            className="h-full rounded-full bg-gradient-to-r from-[var(--gold-deep)] to-[var(--gold-primary)] transition-all duration-1000 group-hover:from-[var(--gold-primary)] group-hover:to-[var(--gold-bright)]"
                             style={{ width: `${percent}%` }}
                           />
                         </div>
@@ -197,7 +197,7 @@ function StatsView() {
                 })()}
               </div>
             ) : (
-              <div className="h-48 flex items-center justify-center text-white/30 text-xs">
+              <div className="h-48 flex items-center justify-center text-[var(--ivory-muted)]/30 text-xs">
                 No district data available
               </div>
             )}
@@ -222,8 +222,8 @@ function BookingsView() {
   return (
     <div>
       <div className="mb-8">
-        <h1 className="text-2xl font-bold text-white">Bookings</h1>
-        <p className="text-sm text-white/40 mt-1">Review and manage all event bookings</p>
+        <h1 className="text-2xl font-bold text-[var(--ivory)]">Bookings</h1>
+        <p className="text-sm text-[var(--ivory-muted)]/40 mt-1">Review and manage all event bookings</p>
       </div>
 
       <BookingTable
@@ -264,10 +264,10 @@ export default function AdminDashboard() {
   // Show loading while auth state rehydrates
   if (loading) {
     return (
-      <div className="min-h-screen bg-dark-950 flex items-center justify-center">
+      <div className="min-h-screen bg-[var(--surface-1)] flex items-center justify-center">
         <div className="flex flex-col items-center gap-4">
-          <div className="w-10 h-10 border-2 border-primary-500 border-t-transparent rounded-full animate-spin" />
-          <p className="text-white/40 text-sm">Loading...</p>
+          <div className="w-10 h-10 border-2 border-[var(--gold-primary)] border-t-transparent rounded-full animate-spin" />
+          <p className="text-[var(--ivory-muted)]/40 text-sm">Loading...</p>
         </div>
       </div>
     )
@@ -280,7 +280,7 @@ export default function AdminDashboard() {
   }
 
   return (
-    <div className="min-h-screen bg-dark-900 flex">
+    <div className="min-h-screen bg-[var(--surface-1)] flex">
       <Sidebar
         activeView={activeView}
         setActiveView={setActiveView}
@@ -293,13 +293,13 @@ export default function AdminDashboard() {
       {/* Main content */}
       <main className="flex-1 min-w-0">
         {/* Mobile top bar */}
-        <div className="lg:hidden flex items-center justify-between px-4 py-4 border-b border-white/5 bg-dark-800">
+        <div className="lg:hidden flex items-center justify-between px-4 py-4 border-b border-[var(--surface-border)] bg-[var(--surface-2)]">
           <button
             id="mobile-menu-btn"
             onClick={() => setMobileMenuOpen(true)}
-            className="p-2 rounded-lg hover:bg-white/10 transition-colors"
+            className="p-2 rounded-lg hover:bg-[var(--surface-3)] transition-colors"
           >
-            <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg className="w-5 h-5 text-[var(--ivory)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
             </svg>
           </button>

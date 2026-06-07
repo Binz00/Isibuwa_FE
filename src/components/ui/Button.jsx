@@ -4,12 +4,12 @@
  */
 
 const variants = {
-  primary:   'bg-gradient-to-r from-primary-600 to-primary-500 hover:from-primary-500 hover:to-primary-400 text-white shadow-lg shadow-primary-900/30 hover:shadow-primary-800/40',
-  secondary: 'bg-white/10 hover:bg-white/20 text-white border border-white/20 hover:border-white/30',
+  primary:   'bg-gradient-to-r from-[var(--gold-deep)] to-[var(--gold-primary)] hover:from-[var(--gold-primary)] hover:to-[var(--gold-bright)] text-[var(--surface-1)] shadow-lg shadow-[var(--gold-deep)]/20 active:scale-[0.98]',
+  secondary: 'bg-[var(--surface-3)] hover:bg-[var(--surface-3)]/80 text-[var(--ivory)] border border-[var(--surface-border)] hover:border-[var(--gold-primary)]/40',
   danger:    'bg-gradient-to-r from-red-700 to-red-600 hover:from-red-600 hover:to-red-500 text-white shadow-lg shadow-red-900/30',
   success:   'bg-gradient-to-r from-emerald-700 to-emerald-600 hover:from-emerald-600 hover:to-emerald-500 text-white shadow-lg shadow-emerald-900/30',
-  ghost:     'bg-transparent hover:bg-white/10 text-white/70 hover:text-white',
-  accent:    'bg-gradient-to-r from-accent-500 to-accent-400 hover:from-accent-400 hover:to-accent-300 text-dark-900 font-bold shadow-lg shadow-accent-900/30',
+  ghost:     'bg-transparent hover:bg-[var(--surface-3)] text-[var(--ivory-muted)] hover:text-[var(--ivory)]',
+  accent:    'bg-gradient-to-r from-[var(--gold-primary)] to-[var(--gold-bright)] hover:from-[var(--gold-bright)] hover:to-[var(--gold-primary)] text-[var(--surface-1)] font-bold shadow-lg shadow-[var(--gold-primary)]/20',
 }
 
 const sizes = {
@@ -56,7 +56,7 @@ export function Button({
       className={[
         'inline-flex items-center justify-center gap-2 rounded-xl font-semibold',
         'transition-all duration-200 ease-out',
-        'focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 focus:ring-offset-dark-800',
+        'focus:outline-none focus:ring-2 focus:ring-[var(--gold-primary)]/40 focus:ring-offset-2 focus:ring-offset-[var(--surface-1)]',
         'active:scale-95',
         variants[variant] || variants.primary,
         sizes[size]        || sizes.md,

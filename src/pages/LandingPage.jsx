@@ -208,7 +208,7 @@ export default function LandingPage() {
 
       {/* ── Hero Section (Absolute Overlay on Desktop, Stacked on Mobile) ─────────────────── */}
       <section
-        className="relative pt-28 lg:pt-0 pb-16 px-6 md:px-12 flex flex-col items-center justify-center min-h-[85vh] lg:min-h-screen border-b border-[var(--surface-border)] bg-[var(--surface-1)] lg:bg-cover lg:bg-center lg:bg-no-repeat"
+        className="relative pt-28 lg:pt-0 pb-16 px-6 md:px-12 flex flex-col items-center justify-center lg:justify-end lg:pb-6 min-h-[85vh] lg:min-h-screen border-b border-[var(--surface-border)] bg-[var(--surface-1)] lg:bg-cover lg:bg-center lg:bg-no-repeat"
         style={{
           backgroundImage: `url(${heroBg})`,
         }}
@@ -234,7 +234,7 @@ export default function LandingPage() {
           <div className="w-full grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch text-left">
             
             {/* Description & CTA (Aligned bottom-left, stays below the Sasnaka logo on the left) */}
-            <div className="lg:col-span-4 flex flex-col justify-end items-start pb-4">
+            <div className="lg:col-span-4 flex flex-col justify-end items-start pb-4 lg:pb-0">
               <div className="mb-4">
                 {getAvailabilityBadge(remaining)}
               </div>
@@ -261,7 +261,7 @@ export default function LandingPage() {
             <div className="hidden lg:block lg:col-span-4 pointer-events-none" />
 
             {/* Concert Details Pass Card (Aligned center-right/middle, fits perfectly in the empty right canopy) */}
-            <div className="lg:col-span-4 flex items-end lg:items-center justify-end">
+            <div className="lg:col-span-4 flex items-end justify-end">
               <div className="w-full max-w-sm bg-[var(--surface-3)]/90 backdrop-blur-md border border-[var(--surface-border)] p-6 relative overflow-hidden group hover:border-[var(--gold-primary)]/35 transition-all duration-300">
                 <div className="absolute top-0 left-0 w-2 h-[1px] bg-[var(--gold-primary)]" />
                 <div className="absolute top-0 left-0 w-[1px] h-2 bg-[var(--gold-primary)]" />

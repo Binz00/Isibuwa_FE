@@ -103,7 +103,7 @@ export function BookingModal({ booking: initialBooking, isOpen, onClose, onAppro
               </span>
             )}
           </div>
-          <span className="text-xs text-white/30">
+          <span className="text-xs text-[var(--ivory-muted)]/30">
             Submitted {new Date(booking.submitted_at).toLocaleDateString('en-US', {
               month: 'long', day: 'numeric', year: 'numeric', hour: '2-digit', minute: '2-digit',
             })}
@@ -130,8 +130,8 @@ export function BookingModal({ booking: initialBooking, isOpen, onClose, onAppro
             } : null,
           ].filter(Boolean).map((field) => (
             <div key={field.label}>
-              <p className="text-xs text-white/40 uppercase tracking-wider mb-1">{field.label}</p>
-              <p className="text-white font-medium break-all">{field.value}</p>
+              <p className="text-xs text-[var(--ivory-muted)]/40 uppercase tracking-wider mb-1">{field.label}</p>
+              <p className="text-[var(--ivory)] font-medium break-all">{field.value}</p>
             </div>
           ))}
         </div>
@@ -141,14 +141,14 @@ export function BookingModal({ booking: initialBooking, isOpen, onClose, onAppro
           <div className={`rounded-xl border p-5 text-center ${
             isCheckedIn
               ? 'bg-gradient-to-r from-emerald-600/20 to-teal-600/20 border-emerald-500/40'
-              : 'bg-gradient-to-r from-primary-600/30 to-purple-600/30 border-primary-500/40'
+              : 'bg-gradient-to-r from-[rgba(166,113,24,0.15)] to-[rgba(201,146,42,0.15)] border-[var(--gold-primary)]/30'
           }`}>
-            <p className="text-xs text-white/50 uppercase tracking-widest mb-2">Ticket Code</p>
-            <p className="text-2xl font-black tracking-widest text-white font-mono">
+            <p className="text-xs text-[var(--ivory-muted)]/50 uppercase tracking-widest mb-2">Ticket Code</p>
+            <p className="text-2xl font-black tracking-widest text-[var(--ivory)] font-mono">
               {booking.ticket_code}
             </p>
             {booking.issued_at && (
-              <p className="text-xs text-white/30 mt-2">
+              <p className="text-xs text-[var(--ivory-muted)]/30 mt-2">
                 Issued {new Date(booking.issued_at).toLocaleDateString()}
               </p>
             )}
@@ -228,7 +228,7 @@ export function BookingModal({ booking: initialBooking, isOpen, onClose, onAppro
 
         {/* ── Payment slip ─────────────────────────────────── */}
         <div>
-          <p className="text-xs text-white/40 uppercase tracking-wider mb-2">Payment Slip</p>
+          <p className="text-xs text-[var(--ivory-muted)]/40 uppercase tracking-wider mb-2">Payment Slip</p>
           {isLoading ? (
             <div className="h-32 rounded-xl skeleton" />
           ) : slipUrl ? (
@@ -238,7 +238,7 @@ export function BookingModal({ booking: initialBooking, isOpen, onClose, onAppro
                 target="_blank"
                 rel="noopener noreferrer"
                 id={`slip-link-${booking.id}`}
-                className="flex items-center gap-3 p-4 rounded-xl bg-white/5 border border-white/10 hover:bg-white/10 transition-colors group"
+                className="flex items-center gap-3 p-4 rounded-xl bg-[var(--surface-3)] border border-[var(--surface-border)] hover:bg-[var(--surface-3)]/80 transition-colors group"
               >
                 <div className="w-10 h-10 rounded-lg bg-red-500/20 flex items-center justify-center flex-shrink-0">
                   <svg className="w-5 h-5 text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -246,12 +246,12 @@ export function BookingModal({ booking: initialBooking, isOpen, onClose, onAppro
                   </svg>
                 </div>
                 <div>
-                  <p className="text-sm font-medium text-white group-hover:text-primary-400 transition-colors">
+                  <p className="text-sm font-medium text-[var(--ivory)] group-hover:text-[var(--gold-primary)] transition-colors">
                     View Payment Slip (PDF)
                   </p>
-                  <p className="text-xs text-white/30">Opens in new tab · Valid for 1 hour</p>
+                  <p className="text-xs text-[var(--ivory-muted)]/30">Opens in new tab · Valid for 1 hour</p>
                 </div>
-                <svg className="w-4 h-4 text-white/30 ml-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg className="w-4 h-4 text-[var(--ivory-muted)]/30 ml-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
                 </svg>
               </a>
@@ -261,7 +261,7 @@ export function BookingModal({ booking: initialBooking, isOpen, onClose, onAppro
                 target="_blank"
                 rel="noopener noreferrer"
                 id={`slip-img-${booking.id}`}
-                className="block rounded-xl overflow-hidden border border-white/10 hover:border-primary-500/40 transition-colors group"
+                className="block rounded-xl overflow-hidden border border-[var(--surface-border)] hover:border-[var(--gold-primary)]/40 transition-colors group"
               >
                 <img
                   src={slipUrl}
@@ -272,13 +272,13 @@ export function BookingModal({ booking: initialBooking, isOpen, onClose, onAppro
                     e.target.nextSibling.style.display = 'flex'
                   }}
                 />
-                <div style={{ display: 'none' }} className="h-32 items-center justify-center text-white/40 text-sm">
-                  Failed to load image · <a href={slipUrl} className="text-primary-400 underline ml-1">Open link</a>
+                <div style={{ display: 'none' }} className="h-32 items-center justify-center text-[var(--ivory-muted)]/40 text-sm">
+                  Failed to load image · <a href={slipUrl} className="text-[var(--gold-primary)] underline ml-1">Open link</a>
                 </div>
               </a>
             )
           ) : (
-            <p className="text-white/30 text-sm">No payment slip available</p>
+            <p className="text-[var(--ivory-muted)]/30 text-sm">No payment slip available</p>
           )}
         </div>
 
@@ -294,7 +294,7 @@ export function BookingModal({ booking: initialBooking, isOpen, onClose, onAppro
           <>
             {confirmAction && confirmAction !== 'checkin' ? (
               <div className="glass rounded-xl p-4 flex flex-col gap-3">
-                <p className="text-white/80 text-sm text-center font-medium">
+                <p className="text-[var(--ivory)]/80 text-sm text-center font-medium">
                   {confirmAction === 'approve'
                     ? '✅ Confirm approval? A ticket code will be generated and emailed to the attendee.'
                     : '❌ Confirm rejection? The attendee will be notified by email.'}
