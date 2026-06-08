@@ -383,59 +383,7 @@ export default function LandingPage() {
       </section>
       {/* ── End Hero ─────────────────────────────────────────── */}
 
-      {/* ── Artists Lineup Section ────────────────────────────── */}
-      <section id="lineup" className="section-fade py-24 px-6 md:px-12 border-b border-[var(--surface-border)] bg-[var(--surface-2)]">
-        <div className="max-w-7xl mx-auto">
-          <div className="border-l-2 border-[var(--gold-primary)] pl-5 mb-16">
-            <p className="text-[10px] uppercase tracking-[0.14em] text-[var(--gold-primary)] font-semibold font-mono mb-2">Featured Performers</p>
-            <h2 className="font-display text-4xl sm:text-5xl font-light italic text-[var(--gold-bright)]">
-              The Artistry Lineup
-            </h2>
-          </div>
 
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-5">
-            {event?.artists?.map((artist, idx) => (
-              <div
-                key={idx}
-                className="group relative bg-[var(--surface-3)] border border-[var(--surface-border)] p-4 transition-all duration-300 hover:border-[var(--gold-primary)]/35 flex flex-col justify-between overflow-hidden
-                           after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:bg-[var(--gold-primary)] after:transition-all after:duration-500 hover:after:w-full"
-              >
-                <span className="absolute top-3 left-3 text-[10px] font-mono text-[var(--gold-deep)]/60 font-bold z-10">
-                  {String(idx + 1).padStart(2, '0')}
-                </span>
-                <div>
-                  <div className="w-full aspect-[3/4] overflow-hidden bg-black/40 border border-[var(--surface-border)] relative mb-4">
-                    {artist.image && artistImages[artist.image] ? (
-                      <img
-                        src={artistImages[artist.image]}
-                        alt={artist.name}
-                        className="w-full h-full object-cover filter grayscale contrast-[1.2] group-hover:grayscale-0 group-hover:scale-[1.05] transition-all duration-700"
-                      />
-                    ) : (
-                      <div className="w-full h-full flex items-center justify-center text-[var(--ivory-muted)]/10 text-4xl">
-                        🎵
-                      </div>
-                    )}
-                  </div>
-                  <p className="text-[9px] tracking-[0.14em] text-[var(--gold-deep)] font-mono uppercase mb-1">{artist.genre}</p>
-                  <h3 className="font-display text-base font-bold text-[var(--ivory)] mb-2 leading-tight group-hover:text-[var(--gold-primary)] transition-colors duration-200">
-                    {artist.name}
-                  </h3>
-                </div>
-                <p className="text-[11px] text-[var(--ivory-muted)]/45 leading-relaxed font-light mt-auto">
-                  {artist.bio}
-                </p>
-              </div>
-            )) || (
-              <div className="col-span-full py-20 flex flex-col items-center gap-3">
-                <div className="w-10 h-px bg-[var(--gold-deep)]" />
-                <p className="text-[var(--ivory-muted)]/25 text-[11px] tracking-[0.14em] uppercase font-mono">Lineup details will be finalized shortly</p>
-                <div className="w-10 h-px bg-[var(--gold-deep)]" />
-              </div>
-            )}
-          </div>
-        </div>
-      </section>
 
       {/* ── Booking / Registration Section ──────────────────── */}
       <section id="booking" ref={bookingRef} className="section-fade py-24 px-6 md:px-12 relative bg-[var(--surface-1)]">
@@ -733,6 +681,62 @@ export default function LandingPage() {
 
         </div>
       </section>
+
+       {/* ── Artists Lineup Section ────────────────────────────── */}
+      <section id="lineup" className="section-fade py-24 px-6 md:px-12 border-b border-[var(--surface-border)] bg-[var(--surface-2)]">
+        <div className="max-w-7xl mx-auto">
+          <div className="border-l-2 border-[var(--gold-primary)] pl-5 mb-16">
+            <p className="text-[10px] uppercase tracking-[0.14em] text-[var(--gold-primary)] font-semibold font-mono mb-2">Featured Performers</p>
+            <h2 className="font-display text-4xl sm:text-5xl font-light italic text-[var(--gold-bright)]">
+              The Artistry Lineup
+            </h2>
+          </div>
+
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-5">
+            {event?.artists?.map((artist, idx) => (
+              <div
+                key={idx}
+                className="group relative bg-[var(--surface-3)] border border-[var(--surface-border)] p-4 transition-all duration-300 hover:border-[var(--gold-primary)]/35 flex flex-col justify-between overflow-hidden
+                           after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:bg-[var(--gold-primary)] after:transition-all after:duration-500 hover:after:w-full"
+              >
+                <span className="absolute top-3 left-3 text-[10px] font-mono text-[var(--gold-deep)]/60 font-bold z-10">
+                  {String(idx + 1).padStart(2, '0')}
+                </span>
+                <div>
+                  <div className="w-full aspect-[3/4] overflow-hidden bg-black/40 border border-[var(--surface-border)] relative mb-4">
+                    {artist.image && artistImages[artist.image] ? (
+                      <img
+                        src={artistImages[artist.image]}
+                        alt={artist.name}
+                        className="w-full h-full object-cover filter grayscale contrast-[1.2] group-hover:grayscale-0 group-hover:scale-[1.05] transition-all duration-700"
+                      />
+                    ) : (
+                      <div className="w-full h-full flex items-center justify-center text-[var(--ivory-muted)]/10 text-4xl">
+                        🎵
+                      </div>
+                    )}
+                  </div>
+                  <p className="text-[9px] tracking-[0.14em] text-[var(--gold-deep)] font-mono uppercase mb-1">{artist.genre}</p>
+                  <h3 className="font-display text-base font-bold text-[var(--ivory)] mb-2 leading-tight group-hover:text-[var(--gold-primary)] transition-colors duration-200">
+                    {artist.name}
+                  </h3>
+                </div>
+                <p className="text-[11px] text-[var(--ivory-muted)]/45 leading-relaxed font-light mt-auto">
+                  {artist.bio}
+                </p>
+              </div>
+            )) || (
+              <div className="col-span-full py-20 flex flex-col items-center gap-3">
+                <div className="w-10 h-px bg-[var(--gold-deep)]" />
+                <p className="text-[var(--ivory-muted)]/25 text-[11px] tracking-[0.14em] uppercase font-mono">Lineup details will be finalized shortly</p>
+                <div className="w-10 h-px bg-[var(--gold-deep)]" />
+              </div>
+            )}
+          </div>
+        </div>
+      </section>
+
+     
 
       {/* ── Footer ─────────────────────────────────────────── */}
       <footer className="border-t border-[var(--surface-border)] py-12 px-6 text-center bg-[var(--surface-1)]">
