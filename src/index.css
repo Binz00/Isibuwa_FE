@@ -54,13 +54,16 @@
   ::-webkit-scrollbar {
     width: 6px;
   }
+
   ::-webkit-scrollbar-track {
     background: var(--color-bg);
   }
+
   ::-webkit-scrollbar-thumb {
     background: var(--color-border);
     border-radius: 3px;
   }
+
   ::-webkit-scrollbar-thumb:hover {
     background: var(--color-primary);
   }
@@ -88,23 +91,19 @@
 
   /* Skeleton loading animation */
   .skeleton {
-    background: linear-gradient(
-      90deg,
-      rgba(250, 245, 228, 0.03) 25%,
-      rgba(250, 245, 228, 0.08) 50%,
-      rgba(250, 245, 228, 0.03) 75%
-    );
+    background: linear-gradient(90deg,
+        rgba(250, 245, 228, 0.03) 25%,
+        rgba(250, 245, 228, 0.08) 50%,
+        rgba(250, 245, 228, 0.03) 75%);
     background-size: 200% 100%;
     animation: shimmer 1.5s infinite;
   }
 
   .skeleton-light {
-    background: linear-gradient(
-      90deg,
-      rgba(0, 0, 0, 0.06) 25%,
-      rgba(0, 0, 0, 0.12) 50%,
-      rgba(0, 0, 0, 0.06) 75%
-    );
+    background: linear-gradient(90deg,
+        rgba(0, 0, 0, 0.06) 25%,
+        rgba(0, 0, 0, 0.12) 50%,
+        rgba(0, 0, 0, 0.06) 75%);
     background-size: 200% 100%;
     animation: shimmer 1.5s infinite;
   }
@@ -145,6 +144,7 @@
 
 /* Tablet breakpoint: ≤768px */
 @media (max-width: 768px) {
+
   /* BUG 2: Sasnaka Sansada logo appearing twice. Hide the duplicate outside element. */
   .logo-outside-hero {
     display: none !important;
@@ -158,7 +158,8 @@
     background-size: cover !important;
     background-position: center center !important;
     background-repeat: no-repeat !important;
-    height: auto !important; /* ensure no fixed pixel height */
+    height: auto !important;
+    /* ensure no fixed pixel height */
   }
 
   /* BUG 3: Hero card full-width/bleed on tablet/mobile. */
@@ -174,11 +175,13 @@
   .nav-meta {
     display: none !important;
   }
+
   .nav-container {
     display: flex !important;
     justify-content: space-between !important;
     align-items: center !important;
   }
+
   .nav-btn {
     min-height: 44px !important;
     padding: 0 20px !important;
@@ -196,6 +199,7 @@
     gap: 2rem !important;
     padding: 1.5rem 1rem !important;
   }
+
   .registration-left,
   .registration-right {
     width: 100% !important;
@@ -205,10 +209,12 @@
 
 /* Mobile breakpoint: ≤480px */
 @media (max-width: 480px) {
+
   /* BUG 1: Hero container min-height scales with content. */
   .hero-section {
     min-height: 56vw !important;
-    max-height: none !important; /* allow content to push height taller */
+    max-height: none !important;
+    /* allow content to push height taller */
   }
 
   /* BUG 6: Touch targets 44px+ minimum on mobile. */
@@ -219,7 +225,7 @@
     justify-content: center !important;
     width: 100% !important;
   }
-  
+
   .form-submit-btn {
     min-height: 52px !important;
     width: 100% !important;
@@ -263,18 +269,23 @@
     display: flex !important;
     flex-direction: column !important;
   }
+
   .hero-left-column {
     display: contents !important;
   }
+
   .hero-right-column {
     display: contents !important;
   }
+
   .hero-badge-wrapper {
     order: 1 !important;
   }
+
   .hero-desc {
     order: 2 !important;
   }
+
   .gate-pass-card {
     order: 3 !important;
     position: static !important;
@@ -283,6 +294,7 @@
     margin-top: 1.5rem !important;
     margin-bottom: 1.5rem !important;
   }
+
   .hero-btn-group {
     order: 4 !important;
   }
@@ -319,16 +331,41 @@
 }
 
 @keyframes stamp {
-  from { transform: scale(1.15); opacity: 0; }
-  to   { transform: scale(1);    opacity: 1; }
+  from {
+    transform: scale(1.15);
+    opacity: 0;
+  }
+
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
 }
 
-.section-padding { 
-  opacity: 0; 
-  transform: translateY(16px); 
-  transition: opacity 0.5s ease, transform 0.5s ease; 
+.section-padding {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
 }
-.section-padding.visible { 
-  opacity: 1; 
-  transform: translateY(0); 
+
+.section-padding.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.scrollbar-thin::-webkit-scrollbar {
+  height: 2px;
+}
+
+.scrollbar-thin::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.scrollbar-thin::-webkit-scrollbar-thumb {
+  background: rgba(201, 146, 42, 0.3);
+  border-radius: 2px;
+}
+
+.scrollbar-thin::-webkit-scrollbar-thumb:hover {
+  background: rgba(201, 146, 42, 0.6);
 }

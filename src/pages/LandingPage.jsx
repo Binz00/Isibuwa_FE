@@ -845,15 +845,21 @@ export default function LandingPage() {
           </div>
 
           {/* ── Vocalists Sub-section ── */}
+
           <div className="mb-16">
             <h3 className="font-display text-lg tracking-[0.15em] text-[var(--gold-primary)] uppercase border-b border-[var(--surface-border)] pb-3 mb-8">
               Vocalists
             </h3>
-            <div className="flex flex-wrap justify-center gap-5">
+
+            <div
+              className="flex flex-row flex-wrap justify-center gap-5 overflow-x-auto pb-4"
+              style={{ scrollSnapType: 'x mandatory', WebkitOverflowScrolling: 'touch' }}
+            >
               {VOCALISTS_LIST.map((artist, idx) => (
                 <div
                   key={idx}
-                  className="w-[calc(50%-10px)] sm:w-[calc(33.333%-14px)] lg:w-[calc(25%-15px)] group relative bg-[var(--surface-3)] border border-[var(--surface-border)] p-4 transition-all duration-300 hover:border-[var(--gold-primary)]/35 flex flex-col justify-between overflow-hidden
+                  style={{ scrollSnapAlign: 'start', minWidth: '280px', maxWidth: '280px' }}
+                  className="group relative bg-[var(--surface-3)] border border-[var(--surface-border)] p-4 transition-all duration-300 hover:border-[var(--gold-primary)]/35 flex flex-col justify-between overflow-hidden
                             after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:bg-[var(--gold-primary)] after:transition-all after:duration-500 hover:after:w-full"
                 >
                   <span className="absolute top-3 left-3 text-[10px] font-mono text-[var(--gold-deep)]/60 font-bold z-10">
@@ -888,49 +894,63 @@ export default function LandingPage() {
               ))}
             </div>
           </div>
-
           {/* ── Instrument Players Sub-section ── */}
+
           <div>
             <h3 className="font-display text-lg tracking-[0.15em] text-[var(--gold-primary)] uppercase border-b border-[var(--surface-border)] pb-3 mb-8">
               Instrument Players
             </h3>
-            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-5">
-              {INSTRUMENTALISTS_LIST.map((artist, idx) => (
-                <div
-                  key={idx}
-                  className="group relative bg-[var(--surface-3)] border border-[var(--surface-border)] p-4 transition-all duration-300 hover:border-[var(--gold-primary)]/35 flex flex-col justify-between overflow-hidden
-                             after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:bg-[var(--gold-primary)] after:transition-all after:duration-500 hover:after:w-full"
-                >
-                  <span className="absolute top-3 left-3 text-[10px] font-mono text-[var(--gold-deep)]/60 font-bold z-10">
-                    I{String(idx + 1).padStart(2, '0')}
-                  </span>
-                  <div>
-                    <div className="w-full aspect-[3/4] overflow-hidden bg-black/40 border border-[var(--surface-border)] relative mb-4">
-                      {artist.image && artistImages[artist.image] ? (
-                        <img
-                          src={artistImages[artist.image]}
-                          alt={artist.name}
-                          className="w-full h-full object-cover filter grayscale contrast-[1.2] group-hover:grayscale-0 group-hover:scale-[1.05] transition-all duration-700"
-                        />
-                      ) : (
-                        <div className="w-full h-full flex items-center justify-center text-[var(--ivory-muted)]/10 text-4xl">
-                          🎵
-                        </div>
-                      )}
+
+            {/* Scroll container */}
+            <div className="relative">
+              <div
+                className="flex flex-row gap-5 overflow-x-scroll pb-4"
+                style={{ scrollSnapType: 'x mandatory', WebkitOverflowScrolling: 'touch' }}
+              >
+                {INSTRUMENTALISTS_LIST.map((artist, idx) => (
+                  <div
+                    key={idx}
+                    style={{ scrollSnapAlign: 'start', minWidth: '280px', maxWidth: '280px' }}
+                    className="group relative bg-[var(--surface-3)] border border-[var(--surface-border)] p-4 transition-all duration-300 hover:border-[var(--gold-primary)]/35 flex flex-col justify-between overflow-hidden
+                            after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:bg-[var(--gold-primary)] after:transition-all after:duration-500 hover:after:w-full"
+                  >
+                    <span className="absolute top-3 left-3 text-[10px] font-mono text-[var(--gold-deep)]/60 font-bold z-10">
+                      I{String(idx + 1).padStart(2, '0')}
+                    </span>
+                    <div>
+                      <div className="w-full aspect-[3/4] overflow-hidden bg-black/40 border border-[var(--surface-border)] relative mb-4">
+                        {artist.image && artistImages[artist.image] ? (
+                          <img
+                            src={artistImages[artist.image]}
+                            alt={artist.name}
+                            className="w-full h-full object-cover filter grayscale contrast-[1.2] group-hover:grayscale-0 group-hover:scale-[1.05] transition-all duration-700"
+                          />
+                        ) : (
+                          <div className="w-full h-full flex items-center justify-center text-[var(--ivory-muted)]/10 text-4xl">
+                            🎵
+                          </div>
+                        )}
+                      </div>
+                      <div className="flex items-center justify-between text-[9px] tracking-[0.14em] text-[var(--gold-deep)] font-mono uppercase mb-1">
+                        <span>{artist.genre}</span>
+                        <span className="text-[var(--ivory-muted)]/40">{artist.district}</span>
+                      </div>
+                      <h3 className="font-display text-base font-bold text-[var(--ivory)] mb-2 leading-tight group-hover:text-[var(--gold-primary)] transition-colors duration-200">
+                        {artist.name}
+                      </h3>
                     </div>
-                    <div className="flex items-center justify-between text-[9px] tracking-[0.14em] text-[var(--gold-deep)] font-mono uppercase mb-1">
-                      <span>{artist.genre}</span>
-                      <span className="text-[var(--ivory-muted)]/40">{artist.district}</span>
-                    </div>
-                    <h3 className="font-display text-base font-bold text-[var(--ivory)] mb-2 leading-tight group-hover:text-[var(--gold-primary)] transition-colors duration-200">
-                      {artist.name}
-                    </h3>
+                    <p className="text-[11px] text-[var(--ivory-muted)]/45 leading-relaxed font-light mt-auto">
+                      {artist.bio}
+                    </p>
                   </div>
-                  <p className="text-[11px] text-[var(--ivory-muted)]/45 leading-relaxed font-light mt-auto">
-                    {artist.bio}
-                  </p>
-                </div>
-              ))}
+                ))}
+              </div>
+
+              {/* Left fade edge */}
+              <div className="absolute top-0 left-0 bottom-4 w-8 bg-gradient-to-r from-[var(--surface-2)] to-transparent pointer-events-none" />
+              {/* Right fade edge */}
+              <div className="absolute top-0 right-0 bottom-4 w-8 bg-gradient-to-l from-[var(--surface-2)] to-transparent pointer-events-none" />
+
             </div>
           </div>
         </div>
