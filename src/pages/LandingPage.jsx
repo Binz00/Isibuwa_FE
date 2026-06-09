@@ -804,12 +804,12 @@ export default function LandingPage() {
             <h3 className="font-display text-lg tracking-[0.15em] text-[var(--gold-primary)] uppercase border-b border-[var(--surface-border)] pb-3 mb-8">
               Festival Host & Moderator
             </h3>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+            <div className="flex justify-center">
               {MODERATOR_LIST.map((artist, idx) => (
                 <div
                   key={idx}
-                  className="group relative bg-[var(--surface-3)] border border-[var(--surface-border)] p-4 transition-all duration-300 hover:border-[var(--gold-primary)]/35 flex flex-col justify-between overflow-hidden
-                             after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:bg-[var(--gold-primary)] after:transition-all after:duration-500 hover:after:w-full"
+                  className="w-full max-w-[260px] group relative bg-[var(--surface-3)] border border-[var(--surface-border)] p-4 transition-all duration-300 hover:border-[var(--gold-primary)]/35 flex flex-col justify-between overflow-hidden
+                            after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:bg-[var(--gold-primary)] after:transition-all after:duration-500 hover:after:w-full"
                 >
                   <span className="absolute top-3 left-3 text-[10px] font-mono text-[var(--gold-deep)]/60 font-bold z-10">
                     M1
@@ -849,12 +849,12 @@ export default function LandingPage() {
             <h3 className="font-display text-lg tracking-[0.15em] text-[var(--gold-primary)] uppercase border-b border-[var(--surface-border)] pb-3 mb-8">
               Vocalists
             </h3>
-            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-5">
+            <div className="flex flex-wrap justify-center gap-5">
               {VOCALISTS_LIST.map((artist, idx) => (
                 <div
                   key={idx}
-                  className="group relative bg-[var(--surface-3)] border border-[var(--surface-border)] p-4 transition-all duration-300 hover:border-[var(--gold-primary)]/35 flex flex-col justify-between overflow-hidden
-                             after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:bg-[var(--gold-primary)] after:transition-all after:duration-500 hover:after:w-full"
+                  className="w-[calc(50%-10px)] sm:w-[calc(33.333%-14px)] lg:w-[calc(25%-15px)] group relative bg-[var(--surface-3)] border border-[var(--surface-border)] p-4 transition-all duration-300 hover:border-[var(--gold-primary)]/35 flex flex-col justify-between overflow-hidden
+                            after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:bg-[var(--gold-primary)] after:transition-all after:duration-500 hover:after:w-full"
                 >
                   <span className="absolute top-3 left-3 text-[10px] font-mono text-[var(--gold-deep)]/60 font-bold z-10">
                     V{String(idx + 1).padStart(2, '0')}
