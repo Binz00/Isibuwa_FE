@@ -173,6 +173,9 @@ export default function LandingPage() {
 
   const bookingRef = useRef(null)
   const fileInputRef = useRef(null)
+  // Ref for instrument carousel auto-scroll
+  const instrumentCarouselRef = useRef(null)
+  const isHoveredRef = useRef(false)
 
   const { register, handleSubmit, reset, formState: { errors } } = useForm({
     resolver: zodResolver(bookingSchema)
@@ -197,6 +200,36 @@ export default function LandingPage() {
     window.addEventListener('scroll', handleScroll)
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
+
+  // Auto-scroll instrument carousel — seamless infinite loop with hover-pause
+  useEffect(() => {
+    let animationId;
+    // Wait one rAF tick so the DOM has rendered and scrollWidth is reliable
+    const init = requestAnimationFrame(() => {
+      const container = instrumentCarouselRef?.current;
+      if (!container) return;
+      // The inner track holds two copies of the list; half = one full copy width
+      const halfWidth = container.scrollWidth / 2;
+      if (halfWidth <= 0) return;
+      const speed = 0.6; // pixels per frame
+      const step = () => {
+        if (!isHoveredRef.current) {
+          container.scrollLeft += speed;
+          // When we've scrolled one full copy, reset seamlessly to start
+          if (container.scrollLeft >= halfWidth) {
+            container.scrollLeft -= halfWidth;
+          }
+        }
+        animationId = requestAnimationFrame(step);
+      };
+      animationId = requestAnimationFrame(step);
+    });
+    return () => {
+      cancelAnimationFrame(init);
+      cancelAnimationFrame(animationId);
+    };
+  }, []);
+
 
   useEffect(() => {
     const obs = new IntersectionObserver(
@@ -903,21 +936,30 @@ export default function LandingPage() {
               Instrument Players
             </h3>
 
-            {/* Scroll container */}
+            {/* Scroll container — seamless auto-scroll marquee */}
             <div className="relative">
               <div
-                className="flex flex-row gap-5 overflow-x-scroll pb-4"
-                style={{ scrollSnapType: 'x mandatory', WebkitOverflowScrolling: 'touch' }}
+                ref={instrumentCarouselRef}
+                className="instrument-carousel flex flex-row gap-5 overflow-x-scroll pb-4"
+                style={{
+                  WebkitOverflowScrolling: 'touch',
+                  /* Hide scrollbar cross-browser */
+                  scrollbarWidth: 'none',
+                  msOverflowStyle: 'none',
+                }}
+                onMouseEnter={() => { isHoveredRef.current = true }}
+                onMouseLeave={() => { isHoveredRef.current = false }}
               >
-                {INSTRUMENTALISTS_LIST.map((artist, idx) => (
+                {/* Two copies of the list so the loop is seamless */}
+                {[...INSTRUMENTALISTS_LIST, ...INSTRUMENTALISTS_LIST].map((artist, idx) => (
                   <div
                     key={idx}
-                    style={{ scrollSnapAlign: 'start', minWidth: '280px', maxWidth: '280px' }}
+                    style={{ minWidth: '260px', maxWidth: '260px', flexShrink: 0 }}
                     className="group relative bg-[var(--surface-3)] border border-[var(--surface-border)] p-4 transition-all duration-300 hover:border-[var(--gold-primary)]/35 flex flex-col justify-between overflow-hidden
                             after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:bg-[var(--gold-primary)] after:transition-all after:duration-500 hover:after:w-full"
                   >
                     <span className="absolute top-3 left-3 text-[10px] font-mono text-[var(--gold-deep)]/60 font-bold z-10">
-                      I{String(idx + 1).padStart(2, '0')}
+                      I{String((idx % INSTRUMENTALISTS_LIST.length) + 1).padStart(2, '0')}
                     </span>
                     <div>
                       <div className="w-full aspect-[3/4] overflow-hidden bg-black/40 border border-[var(--surface-border)] relative mb-4">
@@ -949,9 +991,9 @@ export default function LandingPage() {
               </div>
 
               {/* Left fade edge */}
-              <div className="absolute top-0 left-0 bottom-4 w-8 bg-gradient-to-r from-[var(--surface-2)] to-transparent pointer-events-none" />
+              <div className="absolute top-0 left-0 bottom-4 w-16 bg-gradient-to-r from-[var(--surface-2)] to-transparent pointer-events-none z-10" />
               {/* Right fade edge */}
-              <div className="absolute top-0 right-0 bottom-4 w-8 bg-gradient-to-l from-[var(--surface-2)] to-transparent pointer-events-none" />
+              <div className="absolute top-0 right-0 bottom-4 w-16 bg-gradient-to-l from-[var(--surface-2)] to-transparent pointer-events-none z-10" />
 
             </div>
           </div>

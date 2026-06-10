@@ -331,6 +331,11 @@
   }
 }
 
+/* Hide scrollbar on the instrument carousel (WebKit) */
+.instrument-carousel::-webkit-scrollbar {
+  display: none;
+}
+
 @keyframes stamp {
   from {
     transform: scale(1.15);
