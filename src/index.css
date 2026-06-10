@@ -319,6 +319,7 @@
   .section-padding {
     padding: 1rem 1rem !important;
   }
+
 }
 
 /* Desktop background forest image blur and styling */
@@ -340,32 +341,4 @@
     transform: scale(1);
     opacity: 1;
   }
-}
-
-.section-padding {
-  opacity: 0;
-  transform: translateY(16px);
-  transition: opacity 0.5s ease, transform 0.5s ease;
-}
-
-.section-padding.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.scrollbar-thin::-webkit-scrollbar {
-  height: 2px;
-}
-
-.scrollbar-thin::-webkit-scrollbar-track {
-  background: transparent;
-}
-
-.scrollbar-thin::-webkit-scrollbar-thumb {
-  background: rgba(201, 146, 42, 0.3);
-  border-radius: 2px;
-}
-
-.scrollbar-thin::-webkit-scrollbar-thumb:hover {
-  background: rgba(201, 146, 42, 0.6);
 }
