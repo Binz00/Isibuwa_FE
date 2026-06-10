@@ -52,93 +52,95 @@ const artistImages = {
 
 const MODERATOR_LIST = [
   {
-    name: 'Dilhara Jayasundara',
+    name: 'Chamindu Gamage',
     genre: 'Master of Ceremonies',
     image: 'Moderor.jpg',
-    district: 'Colombo',
+    district: 'Kegalle',
     bio: 'An elegant presenter and seasoned host, guiding the festival through smooth transitions and immersive storytelling.'
   }
 ]
 
 const VOCALISTS_LIST = [
   {
-    name: 'Kasun Kalhara',
-    genre: 'Classical & Fusion Vocalist',
+    name: 'Sasanda Sankalana',
+    genre: 'Vocalist',
     image: 'Artisit6.jpg',
     district: 'Kandy',
     bio: 'A legendary vocal artist, celebrated for his profound classical roots and expressive, soul-stirring melodies.'
   },
   {
-    name: 'Nadeeka Guruge',
-    genre: 'Folk & Contemporary Vocalist',
+    name: 'Devindi Rajapaksha',
+    genre: 'Vocalist',
     image: 'Artisit8.jpg',
-    district: 'Matara',
+    district: 'Kegalle',
     bio: 'An avant-garde composer and singer, blending deep acoustic textures with traditional Sri Lankan folk music.'
   },
   {
-    name: 'Umaria Sinhawansa',
-    genre: 'Modern Fusion Vocalist',
+    name: 'Hashara Sandamini',
+    genre: 'Vocalist',
     image: 'Artisit9.jpg',
-    district: 'Gampaha',
+    district: 'Rathnapura',
     bio: 'A powerhouse vocalist whose versatility spans classical opera to high-energy contemporary fusion.'
+  },
+  {
+    name: 'Buddhima Prasad Priyanath',
+    genre: 'Vocalist',
+    image: 'Artisit5.jpg',
+    district: 'Rathnapura',
+    bio: 'A rhythm specialist whose rapid-fire classical beats define the tempo of the performance.'
   }
+
 ]
 
 const INSTRUMENTALISTS_LIST = [
   {
-    name: 'Ruwan Weerasekera',
-    genre: 'Violin / Lead Strings',
+    name: 'Malshan Ranawella',
+    genre: 'Violinist',
     image: 'Artisit11.jpg',
     district: 'Badulla',
     bio: 'A veteran violinist delivering intricate solos that weave between classical and experimental soundscapes.'
   },
   {
-    name: 'M.G. Buddhima Prasad Priyanath',
-    genre: 'Classical Violinist',
+    name: 'Punsarani Anodya',
+    genre: 'Violinist',
     image: 'Artisit1.jpeg',
-    district: 'Ratnapura',
+    district: 'Colombo',
     bio: 'Renowned for his precise, classical techniques and contribution to local orchestral fusion projects.'
   },
   {
-    name: 'Hashara Sandamini',
-    genre: 'Sitarist / Fusion Artist',
+    name: 'Methnal Liyanage',
+    genre: 'Flutist',
     image: 'Artisit2.jpeg',
-    district: 'Kegalle',
-    bio: 'Captivating listeners with serene traditional ragas and innovative classical-meets-modern collaborations.'
+    district: 'Galle',
+    bio: 'Captivating listeners with serene traditional ragas and innovative classica'
   },
   {
-    name: 'R.A. Devindi Hirushika',
-    genre: 'Traditional Percussionist',
+    name: 'Ravindu Dileepa',
+    genre: 'Lead Guitarist',
     image: 'Artisit3.jpeg',
-    district: 'Galle',
+    district: 'Rathnapura',
     bio: 'A dynamic percussionist specializing in traditional Sri Lankan low-country and up-country drumming.'
   },
   {
-    name: 'Sasanda Sankalana',
-    genre: 'Flutist & Wind Musician',
+    name: 'Rasindu Karunathilaka',
+    genre: 'Lead Guitarist',
     image: 'Artisit4.jpeg',
-    district: 'Kalutara',
+    district: 'Rathnapura',
     bio: 'Crafting atmospheric soundscapes using classical wooden flutes and modern wind fusion styles.'
   },
+
   {
-    name: 'Amila Jayawardena',
-    genre: 'Tabla & Multi-Percussionist',
-    image: 'Artisit5.jpg',
-    district: 'Kurunegala',
-    bio: 'A rhythm specialist whose rapid-fire classical beats define the tempo of the performance.'
-  },
-  {
-    name: 'Dinesh Subasinghe',
-    genre: 'Keyboards & Synth',
+    name: 'Minhaj Ali',
+    genre: 'Keyboards',
     image: 'Artisit10.jpg',
-    district: 'Jaffna',
+    district: 'Colombo',
     bio: 'Blending modern synthesizers with classical compositions to create cinematic instrumental layers.'
   },
   {
-    name: 'Indrajith Mirihana',
-    genre: 'Cellist & Arranger',
+    name: 'Nimsara Nimesh',
+    genre: 'Percussionist',
     image: 'Artisit12.jpg',
-    district: 'Nuwara Eliya',
+    district: 'Colombo',
     bio: 'Providing warm, resonant low-end support that serves as the foundation for the entire ensemble.'
   }
 ]
