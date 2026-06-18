@@ -61,6 +61,58 @@ const artistImages = {
 }
 
 
+const INSTRUMENTALISTS_LIST = [
+  {
+    name: 'Malshan Ranawella',
+    genre: 'Violinist',
+    image: 'Artisit11.jpg',
+    district: 'Colombo',
+    bio: 'A veteran violinist delivering intricate solos that weave between classical and experimental soundscapes.'
+  },
+  {
+    name: 'Punsarani Anodya',
+    genre: 'Violinist',
+    image: 'Artisit1.jpeg',
+    district: 'Colombo',
+    bio: 'Renowned for his precise, classical techniques and contribution to local orchestral fusion projects.'
+  },
+  {
+    name: 'Methnal Liyanage',
+    genre: 'Flutist',
+    image: 'Artisit2.jpeg',
+    district: 'Galle',
+    bio: 'Captivating listeners with serene traditional ragas and innovative classica'
+  },
+  {
+    name: 'Ravindu Dileepa',
+    genre: 'Lead Guitarist',
+    image: 'Artisit3.jpeg',
+    district: 'Rathnapura',
+    bio: 'A dynamic percussionist specializing in traditional Sri Lankan low-country and up-country drumming.'
+  },
+  {
+    name: 'Rasindu Karunathilaka',
+    genre: 'Lead Guitarist',
+    image: 'Artisit4.jpeg',
+    district: 'Rathnapura',
+    bio: 'Crafting atmospheric soundscapes using classical wooden flutes and modern wind fusion styles.'
+  },
+
+  {
+    name: 'Minhaj Ali',
+    genre: 'Keyboards',
+    image: 'Artisit10.jpg',
+    district: 'Colombo',
+    bio: 'Blending modern synthesizers with classical compositions to create cinematic instrumental layers.'
+  },
+  {
+    name: 'Nimsara Nimesh',
+    genre: 'Percussionist',
+    image: 'Artisit12.jpg',
+    district: 'Colombo',
+    bio: 'Providing warm, resonant low-end support that serves as the foundation for the entire ensemble.'
+  }
+]
 
 const SRI_LANKAN_DISTRICTS = [
   'Ampara', 'Anuradhapura', 'Badulla', 'Batticaloa', 'Colombo', 'Galle', 'Gampaha',
