@@ -7,7 +7,7 @@
  * KEY CHANGE: Hero is now a true full-screen composition.
  * - Sasnaka logo: top-left corner, anchored
  * - Gate Pass card: top-right corner, anchored  
- * - Isibuwa artwork: dead center, large and dominant
+ * - Isimbuwa artwork: dead center, large and dominant
  * - Availability badge + description + CTAs: bottom-left
  * - All four corners used intentionally — nothing crammed, nothing wasted
  */
@@ -36,6 +36,8 @@ import reviewer2 from '../assets/Reviewer2.jpg'
 import reviewer3 from '../assets/Reviewer3.jpg'
 import reviewer4 from '../assets/Reviewer4.jpg'
 import reviewer5 from '../assets/Reviewer5.jpg'
+import reviewer6 from '../assets/Reviewer6.jpg'
+import reviewer7 from '../assets/Reviewer7.jpg'
 import heroBg from '../assets/hero-bg.jpeg'
 import isibuwaLogo from '../assets/Isibuwa_logo.png'
 import sasnakaLogo from '../assets/Sasnaka_logo.png'
@@ -58,6 +60,8 @@ const artistImages = {
   'Reviewer3.jpg': reviewer3,
   'Reviewer4.jpg': reviewer4,
   'Reviewer5.jpg': reviewer5,
+  'Reviewer6.jpg': reviewer6,
+  'Reviewer7.jpg': reviewer7,
 }
 
 
@@ -66,51 +70,43 @@ const INSTRUMENTALISTS_LIST = [
     name: 'Malshan Ranawella',
     genre: 'Violinist',
     image: 'Artisit11.jpg',
-    district: 'Colombo',
-    bio: 'A veteran violinist delivering intricate solos that weave between classical and experimental soundscapes.'
+    district: 'Kegalle'
   },
   {
     name: 'Punsarani Anodya',
     genre: 'Violinist',
     image: 'Artisit1.jpeg',
-    district: 'Colombo',
-    bio: 'Renowned for his precise, classical techniques and contribution to local orchestral fusion projects.'
+    district: 'Colombo'
   },
   {
     name: 'Methnal Liyanage',
     genre: 'Flutist',
     image: 'Artisit2.jpeg',
-    district: 'Galle',
-    bio: 'Captivating listeners with serene traditional ragas and innovative classica'
+    district: 'Galle'
   },
   {
     name: 'Ravindu Dileepa',
     genre: 'Lead Guitarist',
     image: 'Artisit3.jpeg',
-    district: 'Rathnapura',
-    bio: 'A dynamic percussionist specializing in traditional Sri Lankan low-country and up-country drumming.'
+    district: 'Rathnapura'
   },
   {
     name: 'Rasindu Karunathilaka',
     genre: 'Lead Guitarist',
     image: 'Artisit4.jpeg',
-    district: 'Rathnapura',
-    bio: 'Crafting atmospheric soundscapes using classical wooden flutes and modern wind fusion styles.'
+    district: 'Rathnapura'
   },
-
   {
     name: 'Minhaj Ali',
     genre: 'Keyboards',
     image: 'Artisit10.jpg',
-    district: 'Colombo',
-    bio: 'Blending modern synthesizers with classical compositions to create cinematic instrumental layers.'
+    district: 'Colombo'
   },
   {
     name: 'Nimsara Nimesh',
     genre: 'Percussionist',
     image: 'Artisit12.jpg',
-    district: 'Colombo',
-    bio: 'Providing warm, resonant low-end support that serves as the foundation for the entire ensemble.'
+    district: 'Colombo'
   }
 ]
 
@@ -268,7 +264,7 @@ export default function LandingPage() {
       <header className={`fixed top-0 left-0 right-0 z-50 border-b border-[var(--surface-border)] bg-[var(--surface-2)]/95 backdrop-blur-md transition-all duration-300 ${isScrolled ? 'shadow-[0_4px_24px_rgba(201,146,42,0.08)]' : ''}`}>
         <div className="max-w-7xl mx-auto px-6 lg:px-10 h-16 flex items-center justify-between">
           <a href="/" className="font-display text-xl font-bold tracking-[0.15em] text-[var(--gold-bright)] hover:opacity-80 transition-opacity">
-            ISIBUWA
+            ISIMBUWA
           </a>
           <div className="hidden md:flex items-center gap-5 text-[10px] tracking-[0.08em] text-[var(--ivory-muted)]/60 font-mono">
             <span>6.9231° N, 80.3475° E</span>
@@ -295,7 +291,7 @@ export default function LandingPage() {
           ┌─────────────────────────────────────────────────────┐
           │ [SASNAKA LOGO — top left]    [GATE PASS — top right]│
           │                                                     │
-          │              [ISIBUWA ARTWORK — center]             │
+          │              [ISIMBUWA ARTWORK — center]             │
           │                                                     │
           │ [BADGE]                                             │
           │ [DESCRIPTION]                      [SCROLL HINT]   │
@@ -330,14 +326,14 @@ export default function LandingPage() {
             <img src={heroBg} alt="" className="w-full h-auto object-cover opacity-50 blur-sm scale-105 select-none pointer-events-none" />
             <div className="absolute inset-0 flex flex-col items-center justify-center gap-4 p-6">
               <img src={sasnakaLogo} alt="Sasnaka Sansada Foundation" className="h-10 w-auto object-contain opacity-90" />
-              <img src={isibuwaLogo} alt="Isibuwa '26" className="w-[90%] max-w-[360px] sm:max-w-[420px] h-auto object-contain drop-shadow-[0_0_40px_rgba(201,146,42,0.4)]" />
+              <img src={isibuwaLogo} alt="Isimbuwa '26" className="w-[90%] max-w-[360px] sm:max-w-[420px] h-auto object-contain drop-shadow-[0_0_40px_rgba(201,146,42,0.4)]" />
             </div>
           </div>
           {/* Mobile content */}
           <div className="flex flex-col gap-4">
             {getAvailabilityBadge(remaining)}
             <p className="text-[var(--ivory-muted)] text-sm leading-[1.85] font-light max-w-md">
-              Isibuwa Festival returns for its 2026 edition in the serene wilderness of Deraniyagala. Experience an evening dedicated to authentic musical artistry, bringing together classical melodies, vocal performances, and deep instrumental fusion under the stars.
+              Isimbuwa Festival returns for its 2026 edition in the serene wilderness of Deraniyagala. Experience an evening dedicated to authentic musical artistry, bringing together classical melodies, vocal performances, and deep instrumental fusion under the stars.
             </p>
             <div className="flex flex-col sm:flex-row gap-3 mt-2">
               <button
@@ -390,7 +386,7 @@ export default function LandingPage() {
                 <div className="flex justify-between items-start border-b border-[var(--surface-border)] pb-4 mb-4">
                   <div>
                     <p className="text-[9px] tracking-[0.12em] text-[var(--ivory-muted)]/50 font-mono uppercase mb-1">Gate Pass</p>
-                    <h3 className="font-display text-base font-medium text-[var(--ivory)] leading-tight">Isibuwa Festival '26</h3>
+                    <h3 className="font-display text-base font-medium text-[var(--ivory)] leading-tight">Isimbuwa Festival '26</h3>
                   </div>
                   <div className="text-right">
                     <p className="text-[9px] tracking-[0.12em] text-[var(--ivory-muted)]/50 font-mono uppercase mb-1">Price</p>
@@ -412,11 +408,11 @@ export default function LandingPage() {
             </div>
           </div>
 
-          {/* ┌── CENTER: Isibuwa artwork — dominant and large ─ */}
+          {/* ┌── CENTER: Isimbuwa artwork — dominant and large ─ */}
           <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
             <img
               src={isibuwaLogo}
-              alt="Isibuwa '26"
+              alt="Isimbuwa '26"
               className="w-[55vw] xl:w-[50vw] max-w-[850px] h-auto object-contain
                          drop-shadow-[0_0_80px_rgba(201,146,42,0.35)]
                          drop-shadow-[0_0_160px_rgba(201,146,42,0.15)]"
@@ -432,7 +428,7 @@ export default function LandingPage() {
               className="text-[var(--ivory-muted)] text-sm xl:text-[15px] leading-[1.9] font-light mb-8"
               style={{ textShadow: '0 2px 16px rgba(0,0,0,0.95), 0 1px 4px rgba(0,0,0,0.8)' }}
             >
-              Isibuwa Festival returns for its 2026 edition in the serene wilderness of Deraniyagala. Experience an evening dedicated to authentic musical artistry, bringing together classical melodies, vocal performances, and deep instrumental fusion under the stars.
+              Isimbuwa Festival returns for its 2026 edition in the serene wilderness of Deraniyagala. Experience an evening dedicated to authentic musical artistry, bringing together classical melodies, vocal performances, and deep instrumental fusion under the stars.
             </p>
             <div className="flex items-center gap-4">
               <button
@@ -573,7 +569,7 @@ export default function LandingPage() {
                   <div className="max-w-xs mx-auto bg-[var(--surface-1)] border border-[var(--surface-border)] p-6 text-left font-mono text-xs"
                     style={{ animation: 'stamp 0.35s cubic-bezier(0.175,0.885,0.32,1.275) forwards' }}>
                     <div className="border-b border-[var(--surface-border)] pb-4 mb-4 text-center">
-                      <p className="text-sm font-semibold tracking-[0.16em] text-[var(--ivory)] font-display uppercase">ISIBUWA PASS</p>
+                      <p className="text-sm font-semibold tracking-[0.16em] text-[var(--ivory)] font-display uppercase">ISIMBUWA PASS</p>
                       <p className="text-[9px] text-[var(--ivory-muted)]/25 mt-1">№ REC-2026-{bookingId}</p>
                     </div>
                     <div className="space-y-2 text-[var(--ivory-muted)]/60 mb-5">
@@ -604,7 +600,7 @@ export default function LandingPage() {
                   </div>
                   <h3 className="font-display text-3xl font-light text-[var(--ivory)] mb-3">Gate Closed</h3>
                   <p className="text-[var(--ivory-muted)]/35 text-xs leading-relaxed max-w-xs mx-auto">
-                    All 150 available entry slots for Isibuwa Festival 2026 have been filled. Stay tuned for future editions.
+                    All 150 available entry slots for Isimbuwa Festival 2026 have been filled. Stay tuned for future editions.
                   </p>
                 </div>
 
@@ -810,9 +806,7 @@ export default function LandingPage() {
                       {artist.name}
                     </h3>
                   </div>
-                  <p className="text-[11px] text-[var(--ivory-muted)]/45 leading-relaxed font-light mt-auto">
-                    {artist.bio}
-                  </p>
+
                 </div>
               ))}
             </div>
@@ -861,9 +855,7 @@ export default function LandingPage() {
                       {artist.name}
                     </h3>
                   </div>
-                  <p className="text-[11px] text-[var(--ivory-muted)]/45 leading-relaxed font-light mt-auto">
-                    {artist.bio}
-                  </p>
+
                 </div>
               ))}
             </div>
@@ -911,9 +903,7 @@ export default function LandingPage() {
                       {artist.name}
                     </h3>
                   </div>
-                  <p className="text-[11px] text-[var(--ivory-muted)]/45 leading-relaxed font-light mt-auto">
-                    {artist.bio}
-                  </p>
+
                 </div>
               ))}
             </div>
@@ -962,9 +952,7 @@ export default function LandingPage() {
                       {reviewer.name}
                     </h3>
                   </div>
-                  <p className="text-[11px] text-[var(--ivory-muted)]/45 leading-relaxed font-light mt-auto">
-                    {reviewer.bio}
-                  </p>
+
                 </div>
               ))}
             </div>
@@ -978,7 +966,7 @@ export default function LandingPage() {
       <footer className="border-t border-[var(--surface-border)] py-12 px-6 text-center bg-[var(--surface-1)]">
         <div className="w-20 h-px bg-gradient-to-r from-transparent via-[var(--gold-primary)]/50 to-transparent mx-auto mb-8" />
         <p className="font-display text-xl font-light italic text-[var(--gold-bright)] tracking-[0.1em] mb-2">
-          ISIBUWA FESTIVAL 2026
+          ISIMBUWA FESTIVAL 2026
         </p>
         <p className="text-[var(--ivory-muted)]/30 text-[11px] font-light">
           {event?.venue || 'Deraniyagala, Kegalle'} · {formattedDate}
