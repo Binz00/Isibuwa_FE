@@ -529,7 +529,7 @@ export default function LandingPage() {
             </div>
 
             <p className="text-[11px] text-[var(--ivory-muted)]/35 leading-relaxed">
-              * Our administration team will verify the payment reference within 24 hours and issue your unique check-in code directly to your email.
+              * Our administration team will verify the payment reference within 48 hours and issue your unique check-in code directly to your email.
             </p>
 
             {/* Order Summary */}
